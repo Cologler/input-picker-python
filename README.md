@@ -12,3 +12,13 @@ except Help: # when user pick the help
 except Stop: # when user pick the stop
     stop_your_app()
 ```
+
+**Tips**: you can handle `Stop` on root:
+
+``` py
+if __name__ == '__main__':
+    try:
+        main()
+    except Stop:
+        print('User stop application.')
+```
