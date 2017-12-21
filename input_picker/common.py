@@ -47,6 +47,14 @@ class Option:
             text = colorama.Fore.LIGHTGREEN_EX + text + colorama.Fore.RESET
         return text
 
+    def invoke(self):
+        return self._value
+
+
+class ExceptionOption(Option):
+    def invoke(self):
+        raise self._value
+
 
 class Picker:
     def __init__(self, sep: str):
@@ -82,10 +90,7 @@ class Picker:
         value = rawvalue.lower()
         option = self._table.get(value)
         if option is not None:
-            if option.value in (Stop, Help):
-                raise option.value
-            else:
-                return option.value
+            return option.invoke()
         if value == '':
             return defval
         else:
