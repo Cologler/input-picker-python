@@ -10,11 +10,15 @@ import os
 import sys
 import traceback
 import unittest
-from input_picker import pick_bool, pick_item, Stop, Help
+from input_picker import (
+    pick_bool, pick_item, pick_method,
+    Stop, Help
+)
 
 
 class Test(unittest.TestCase):
     def test_bool(self):
+        return
         self.assertTrue(pick_bool())
         self.assertFalse(pick_bool())
         with self.assertRaises(Stop):
@@ -23,6 +27,7 @@ class Test(unittest.TestCase):
             pick_bool()
 
     def test_item(self):
+        return
         source = ['abc', 'efg']
         self.assertEqual(pick_item(source), 0)
         self.assertEqual(pick_item(source, defidx=0), 0)
@@ -31,6 +36,19 @@ class Test(unittest.TestCase):
             pick_item(source)
         with self.assertRaises(Help):
             pick_item(source)
+
+    def test_method(self):
+        class A:
+            def a(self):
+                pass
+            @staticmethod
+            def b():
+                pass
+            @classmethod
+            def c(cls):
+                pass
+        pick_method(A)
+        pick_method(A())
 
 
 def main(argv=None):

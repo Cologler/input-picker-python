@@ -9,3 +9,4 @@
 from .common import Stop, Help
 from .bool import pick_bool
 from .list import pick_item
+from .obj import pick_method
