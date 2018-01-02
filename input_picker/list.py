@@ -10,7 +10,7 @@ import typing
 from .common import Option, ExceptionOption, Picker, Stop, Help
 
 
-def pick_item(source: typing.List[str], defidx: int=None,
+def pick_item(source: typing.List[str], *, defidx: int=None,
         allow_none: bool=True,
         raise_on_help: bool=True) -> int:
     '''

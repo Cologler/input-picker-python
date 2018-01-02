@@ -9,7 +9,7 @@
 from .common import Option, ExceptionOption, Picker, Stop, Help
 
 
-def pick_bool(defval: bool=True,
+def pick_bool(*, defval: bool=True,
         use_bool_style: bool=False,
         raise_on_help: bool=True) -> bool:
     ''' pick a bool value. '''

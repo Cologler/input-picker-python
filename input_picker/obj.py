@@ -9,7 +9,7 @@
 import typing
 from .common import Option, ExceptionOption, Picker, Stop, Help
 
-def pick_method(obj: object, allow_none: bool=True, raise_on_help: bool=True) -> callable:
+def pick_method(obj: object, *, allow_none: bool=True, raise_on_help: bool=True) -> callable:
     '''
     pick a method from a obj (`cls` or `self`).
     can use filter to filter
@@ -35,7 +35,7 @@ def pick_method(obj: object, allow_none: bool=True, raise_on_help: bool=True) ->
         options.add(Option(desc, [str(idx), name], method))
 
     if allow_none:
-        options.add(Option('None', ['X', 'none'], -1))
+        options.add(Option('None', ['X', 'none'], None))
     options.add(ExceptionOption('Stop', ['S', 'stop'], Stop))
     if raise_on_help:
         options.add(ExceptionOption('Help', ['?', 'H'], Help))
