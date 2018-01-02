@@ -58,7 +58,6 @@ def main(argv=None):
         unittest.main()
     except Exception:
         traceback.print_exc()
-        input()
 
 if __name__ == '__main__':
     main()
