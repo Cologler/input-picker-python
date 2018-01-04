@@ -8,6 +8,10 @@
 
 import typing
 import colorama
+from .colors import (
+    lightred,
+    lightgreen
+)
 
 colorama.init()
 
@@ -44,7 +48,7 @@ class Option:
         if self._keys[0] != self._name:
             text = '[{k}] {n}'.format(k=self._keys[0].upper(), n=self._name)
         if isdef:
-            text = colorama.Fore.LIGHTGREEN_EX + text + colorama.Fore.RESET
+            text = lightgreen(text)
         return text
 
     def invoke(self):
@@ -95,7 +99,5 @@ class Picker:
             return defval
         else:
             msg = '{} is valid input'.format(rawvalue)
-            print(
-                colorama.Fore.LIGHTRED_EX + msg + colorama.Fore.RESET
-            )
+            print(lightred(msg))
             return self.pick(defval)
