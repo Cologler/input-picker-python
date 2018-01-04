@@ -22,7 +22,7 @@ setup(
     packages = find_packages(),
     # auto generated:
     name = 'input_picker',
-    version = '0.1.0.1',
+    version = '0.1.0.2',
     description = '',
     keywords = [],
     author = 'cologler',
