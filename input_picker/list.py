@@ -32,6 +32,8 @@ def pick_item(source: typing.List[str], *, defidx: int=None,
         options.add(Option(item, [str(idx), item], idx))
 
     if allow_none:
+        if defidx is None:
+            defidx = -1
         options.add(Option('None', ['X', 'none'], -1))
     options.add(ExceptionOption('Stop', ['S', 'stop'], Stop))
     if raise_on_help:
