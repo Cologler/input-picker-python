@@ -40,6 +40,10 @@ class Test(unittest.TestCase):
     def test_method(self):
         class A:
             def a(self):
+                '''
+                cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                '''
                 pass
             @staticmethod
             def b():
@@ -47,6 +51,15 @@ class Test(unittest.TestCase):
             @classmethod
             def c(cls):
                 pass
+
+            def ddddddddddddddddddddddddddddddddddddddd(self):
+                '''
+                _
+                cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                cccccccccccccccccccccccccccccccccccccccccccccccc
+                '''
+
+        print()
         pick_method(A)
         pick_method(A())
 
