@@ -59,7 +59,9 @@ def pick_method(obj: object, *,
             def write_newline():
                 sio.write('\n')
                 sio.write(' ' * (mkw[0] + mkw[1]))
-            for line in doc.strip().splitlines():
+            for lineno, line in enumerate(doc.strip().splitlines()):
+                if lineno > 0:
+                    write_newline()
                 i = 0
                 for ch in line.strip():
                     if i >= doccol:
@@ -67,7 +69,6 @@ def pick_method(obj: object, *,
                         i = 0
                     sio.write(ch)
                     i += 1
-                write_newline()
 
             desc = sio.getvalue()
 
